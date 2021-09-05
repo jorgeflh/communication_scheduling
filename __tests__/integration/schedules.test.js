@@ -1,6 +1,14 @@
+const request = require("supertest");
+
+const app = require("../../src/app");
 const { Schedules } = require('../../src/app/models');
+const truncate = require('../utils/truncate');
 
 describe("Schedule endpoints", () => {
+    beforeEach(async () => {
+        await truncate();
+    })
+
     it('should create a schedule', async () => {
         const schedule = await Schedules.create({
             sendDate: '2021-09-05 12:28:00 -3:00',
@@ -9,8 +17,10 @@ describe("Schedule endpoints", () => {
             transportType: 'email'
         });
     
-        console.log(schedule);
+        const response = await request(app)
+            .post("/Schedules")
+            .send({schedule});
     
-        expect(schedule.sendTo).toBe('jorgeflh@gmail.com');
+        expect(response.status).toBe(200);
     });
 })
