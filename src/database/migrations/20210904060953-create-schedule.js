@@ -2,18 +2,18 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    return queryInterface.createTable('schedule', {
+    return queryInterface.createTable('Schedules', {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
         allowNull: false
       },
-      sendDatetime: {
+      sendDate: {
         type: Sequelize.DATE,
         allowNull: false
       },
-      recipient: {
+      sendTo: {
         type: Sequelize.STRING,
         allowNull: false
       },
@@ -27,6 +27,7 @@ module.exports = {
       },
       wasSent: {
         type: Sequelize.BOOLEAN,
+        defaultValue: false
       },
       createdAt: {
         type: Sequelize.DATE,
@@ -36,10 +37,10 @@ module.exports = {
         type: Sequelize.DATE,
         allowNull: false
       }
-    }) 
+    })
   },
 
   down: async (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('schedule');
+    return queryInterface.dropTable("Schedules");
   }
 };

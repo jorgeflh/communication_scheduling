@@ -4,10 +4,8 @@ module.exports = {
   password: 'docker',
   database: 'communication',
   dialect: 'postgres',
-  operatorsAliases: false,
   logging: false,
   define: {
     timestamps: true,
-    underscored: true,
   },
 };

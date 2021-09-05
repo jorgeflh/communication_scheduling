@@ -1,11 +1,11 @@
 module.exports = (sequelize, DataTypes) => {
-    const Schedule = sequelize.define("Schedule", {
-        sendDatetime: DataTypes.DATA,
-        recipient: DataTypes.STRING,
+    const Schedules = sequelize.define("Schedules", {
+        sendDate: DataTypes.DATE,
+        sendTo: DataTypes.STRING,
         message: DataTypes.STRING,
         transportType: DataTypes.STRING,
         wasSent: DataTypes.BOOLEAN
     });
 
-    return Schedule;
+    return Schedules;
 };
