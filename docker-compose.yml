@@ -1,5 +1,14 @@
 version: '3'
 services: 
+  postgres:
+    image: postgres:9.6.23-buster
+    env_file: ./.env
+    environment: 
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports: 
+      - "5432:5432"
+  
   app: 
     build: .
     env_file: ./.env
@@ -12,11 +21,4 @@ services:
       - "5000:5000"
     depends_on: 
       - postgres
-  postgres:
-    image: postgres:9.6.23-buster
-    env_file: ./.env
-    environment: 
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-    ports: 
-      - "5432:5432"
+    restart: on-failure # will restart until it's success
