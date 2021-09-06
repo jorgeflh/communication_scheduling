@@ -111,8 +111,6 @@ describe("DELETE /schedules", () => {
             wasSent: false
         });
 
-        console.log(schedule);
-
         const response = await request(app)
             .delete(`/schedules/${schedule.id}`)
             
