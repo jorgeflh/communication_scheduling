@@ -15,7 +15,7 @@ describe("POST /schedules", () => {
             .post("/schedules")
             .send({
                 sendDate: '2021-09-05 12:28:00 -3:00',
-                sendTo: 'jorgeflh@gmail.com',
+                sendTo: 'test@example.com',
                 message: 'Teste de mensagem',
                 transportType: 'email'
             });
@@ -50,7 +50,7 @@ describe("GET /schedules", () => {
     it('should return a schedule with code 200', async() => {
         const schedule = await Schedules.create({
             sendDate: '2021-09-05 12:28:00 -3:00',
-            sendTo: 'jorgeflh@gmail.com',
+            sendTo: 'test@example.com',
             message: 'Teste de mensagem',
             transportType: 'email'
         });
@@ -77,7 +77,7 @@ describe("PUT /schedules", () => {
     it('should update a schedule with code 204', async() => {
         const schedule = await Schedules.create({
             sendDate: '2021-09-05 12:28:00 -3:00',
-            sendTo: 'jorgeflh@gmail.com',
+            sendTo: 'test@example.com',
             message: 'Teste de mensagem',
             transportType: 'email',
             wasSent: false
@@ -87,7 +87,7 @@ describe("PUT /schedules", () => {
             .put(`/schedules/${schedule.id}`)
             .send({
                 sendDate: '2021-09-05 12:28:00 -3:00',
-                sendTo: 'jorgeflh@gmail.com',
+                sendTo: 'test@example.com',
                 message: 'Teste de mensagem',
                 transportType: 'email',
                 wasSent: true
@@ -105,7 +105,7 @@ describe("DELETE /schedules", () => {
     it("should delete a schedule with code 200", async () => {
         const schedule = await Schedules.create({
             sendDate: '2021-09-05 12:28:00 -3:00',
-            sendTo: 'jorgeflh@gmail.com',
+            sendTo: 'test@example.com',
             message: 'Teste de mensagem',
             transportType: 'email',
             wasSent: false
